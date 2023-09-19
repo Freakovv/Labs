@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="taski.cpp">
+    <ClCompile Include="laba5_z4_1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
