@@ -1,5 +1,6 @@
 #include <iostream>
 #include <Windows.h>
+#include <ctime>
 void z1() {
     const int SIZE = 12;
     int arr[SIZE];
@@ -98,6 +99,27 @@ void z2_3() {
     }
     std::cout << "\n";
 }
+void z2_4(){
+    const int size = 1208;
+    int arr[size];
+    srand(time(NULL));
+    for (int i = 0; i < size; i++)
+    {
+    arr[i] = rand() % 13 - 9;
+    }
+    printf("Числа: ");
+    for (int i = 0; i < size; i++)
+    {
+    std::cout << arr[i] << " ";
+    }
+    printf("\n\nЭлементы массива с индексами, некратными двум и большими 774 - х");
+    for (int i = 0; i < size; i++) {
+        if (i % 2 != 0 && arr[i] > 774) {
+            std::cout << arr[i] << ' ';
+        }
+    }
+    printf("\n");
+}
 void z2_5() {
     const int size = 10;
     int a = 1;
@@ -179,6 +201,13 @@ zad2:
         Sleep(1000);
         std::cout << "\n";
         goto label;
+        break;     
+    case 4:
+        printf("Вы выбрали задание 4:\n");
+        z2_4();
+        Sleep(1000);
+        std::cout << "\n";
+        goto label;
         break;    
     case 5:
         printf("Вы выбрали задание 5:\n");
@@ -201,7 +230,7 @@ zad2:
         break;
     }
 wtf:
-    printf("Точно?\n1. Да\n2.Нет\n");
+    printf("Вы уверены?\n1. Да\n2.Нет\n");
     int y;
     std::cin >> y;
     switch (y)
