@@ -98,6 +98,31 @@ void z2_3() {
     }
     std::cout << "\n";
 }
+void z2_5() {
+    const int size = 10;
+    int a = 1;
+    int arr[size];
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << "Введите " << i << " элемент массива: ";
+        std::cin >> arr[i];
+    }
+    system("cls");
+    printf("Ваш массив в столбик -->\n");
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << "vector[" << i << "] = " << arr[i] << std::endl;
+    }
+    printf("Числа кратные трем -->\t");
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] % 3 == 0) {
+            a *= arr[i];
+            std::cout << arr[i] << " ";
+        }
+    }
+    std::cout << "\nПроизведение этих чисел: " << a;
+}
 void exit() {
     std::abort;
 }
@@ -154,6 +179,13 @@ zad2:
         Sleep(1000);
         std::cout << "\n";
         goto label;
+        break;    
+    case 5:
+        printf("Вы выбрали задание 5:\n");
+        z2_5();
+        Sleep(1000);
+        std::cout << "\n";
+        goto label;
         break;
     case 6:
         system("cls");
@@ -169,7 +201,7 @@ zad2:
         break;
     }
 wtf:
-    printf("Вы уверены?\n1. Да\n2.Нет\n");
+    printf("Точно?\n1. Да\n2.Нет\n");
     int y;
     std::cin >> y;
     switch (y)
