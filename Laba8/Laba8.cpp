@@ -28,7 +28,22 @@ double* fill_double_array(int size) {
 	}
 	return array;
 }
-void z1(int size_n,int size_m) {
+double find_max_element(double array[], int size) {
+	double maxElement = array[0];
+	for (int i = 1; i < size; i++) {
+		if (array[i] > maxElement) {
+			maxElement = array[i];
+		}
+	}
+	return maxElement;
+}
+void z1() {
+	int size_n;
+	int size_m;
+	printf("Введите размер a массива: ");
+	std::cin >> size_n;
+	printf("\nВведите размер b массива: ");
+	std::cin >> size_m;
 	int sum_a = 0;
 	int sum_b = 0;
     int* a = fill_int_array(size_n);
@@ -79,7 +94,8 @@ label1:
 		std::cerr << "Положительные элементы отсувствуют\n";
 	}
 }
-void z3(int size) {
+void z3() {
+	int size = 10;
 	double* arr = fill_double_array(size);
 	printf("\nМассив: ");
 	PrintArray(arr, size);
@@ -97,20 +113,45 @@ void z3(int size) {
 	std::cout << "Наиболее близкий элемент к числу R: " << result << std::endl;
 	delete[] arr;
 }
-void z4() {
-	double arr[]{ 3.24,-7.16,2.28,-0.16,-3.22,7.14,2.88,3.20,0.99,4.15 };
-	int size = 10;
-	int count = 0;
-	int sum = 0;
-	for (int i = 0; i < size; i++)
-	{
-		if (*(arr + i) < 2) {
-			++count;
-		}
-
-	}
-
-}
+//void z4() {
+//	double arr[]{ 3.24,-7.16,2.28,-0.16,-3.22,7.14,2.88,3.20,0.99,4.15 };
+//	int size = 10;
+//	double* arr1 = new double[size];
+//	double zxc = 5.71;
+//	int count = 0;
+//	//1
+//	for (int i = 0; i < size; i++)
+//	{
+//		if (*(arr + i) < 2) {
+//			++count;
+//		}
+//	}
+	////2
+	//int sum = 0;
+	//for (int i = size;; --i)
+	//{
+	//	if (*(arr + i) > 0) {
+	//		sum += *(arr + i);
+	//	}
+	//	else {
+	//		goto label1;
+	//	}
+	//}
+	//label1:
+	//double maxElement = find_max_element(arr, size);
+	//int count = 0;
+	//int newIndex = 0;
+	//for (int i = 0; i < size; i++) {
+	//	if (arr[i] >= zxc) {
+	//		arr1[i] = arr[i];
+	//	}
+	//}
+	//printf("\nМассив:\n");
+	//PrintArray(arr, size);
+	//printf("\nИзмененный массив:\n");
+	//PrintArray(arr1, size);
+	//
+//}
 int main()
 {
 label:
@@ -120,13 +161,7 @@ label:
 	switch (p)
 	{
 	case 1:
-		int sizeA;
-		int sizeB;
-		printf("Введите размер a массива: ");
-		std::cin >> sizeA;
-		printf("\nВведите размер b массива: ");
-		std::cin >> sizeB;
-		z1(sizeA, sizeB);
+		z1();
 		goto label;
 		break;
 	case 2:
@@ -134,12 +169,12 @@ label:
 		goto label;
 		break;
 	case 3:
-		int size3 = 10;
-		z3(size3);
+		z3();
 		goto label;
 		break;
-	//default:
+	//case 4:
+	//	z4();
 	//	goto label;
 	//	break;
-	}
+	//}
 }
