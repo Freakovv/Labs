@@ -1,14 +1,6 @@
 #include <iostream>
 #include <ctime>
-#include <vector>
-template <typename T>
-void PrintArray(T* arr, int size) {
-	for (int i = 0; i < size; i++)
-	{
-		std::cout << *(arr + i) << " ";
-	}
-	std::cout << std::endl;
-}
+#include <cmath>
 int* fill_int_array(int size) {
 	int* arr = new int[size];
 	srand(time(NULL));
@@ -28,46 +20,42 @@ double* fill_double_array(int size) {
 	}
 	return array;
 }
-double find_max_element(double array[], int size) {
-	double maxElement = array[0];
-	for (int i = 1; i < size; i++) {
-		if (array[i] > maxElement) {
-			maxElement = array[i];
-		}
+template <class T>
+void PrintArray(T* arr, int size) {
+	for (int i = 0; i < size; i++)
+	{
+		std::cout << *(arr + i) << " ";
 	}
-	return maxElement;
+	std::cout << std::endl;
 }
+
 void z1() {
-	int size_n;
-	int size_m;
-	printf("Введите размер a массива: ");
-	std::cin >> size_n;
-	printf("\nВведите размер b массива: ");
-	std::cin >> size_m;
-	int sum_a = 0;
-	int sum_b = 0;
-    int* a = fill_int_array(size_n);
+	int size_n = 3;
+	int size_m = 2;
+	int prod_a = 1;
+	int prod_b = 1;
+	int* a = fill_int_array(size_n);
 	int* b = fill_int_array(size_m);
-	printf("\nМассив A:");
 	for (int i = 0; i < size_n; i++)
 	{
-		sum_a += *(a + i);
-		std::cout << *(a + i) << "\t";
+		prod_a *= *(a + i);
+
 	}
-	printf("\nМассив B:");
 	for (int i = 0; i < size_m; i++)
 	{
-		std::cout << *(b + i) << "\t";
-		sum_b += *(b + i);
+		prod_b *= *(b + i);
 	}
-	if (sum_a > sum_b) {
-		std::cout << "\n" << sum_a;
+	if (prod_a > prod_b) {
+		printf("\nМассив A:\t");
+		PrintArray(a, size_n);
+
 	}
-	else if (sum_a == sum_b) {
+	else if (prod_a == prod_b) {
 		std::cerr << "\nЗадача не имеет решения\n";
 	}
 	else {
-		std::cout << "\n" << sum_b;
+		printf("\nМассив B: ");
+		PrintArray(b, size_m);
 	}
 	delete[]a;
 	delete[]b;
@@ -81,17 +69,17 @@ void z2() {
 	for (int i = 0; i < size; i++)
 	{
 		if (*(arr + i) < 0) {
-			goto label1;
+			goto label;
 		}
 		sum += *(arr + i);
 	}
-label1:
+label:
 	delete[] arr;
 	if (sum > 0) {
 		std::cout << "Сумма элементов до последнего положительного элемента: " << sum << std::endl;
 	}
 	else {
-		std::cerr << "Положительные элементы отсувствуют\n";
+		std::cerr << "Отрицательный элемент первый\n";
 	}
 }
 void z3() {
@@ -110,71 +98,68 @@ void z3() {
 			result = arr[i];
 		}
 	}
-	std::cout << "Наиболее близкий элемент к числу R: " << result << std::endl;
 	delete[] arr;
+	std::cout << "Наиболее близкий элемент к числу R: " << result << std::endl;
 }
-//void z4() {
-//	double arr[]{ 3.24,-7.16,2.28,-0.16,-3.22,7.14,2.88,3.20,0.99,4.15 };
-//	int size = 10;
-//	double* arr1 = new double[size];
-//	double zxc = 5.71;
-//	int count = 0;
-//	//1
-//	for (int i = 0; i < size; i++)
-//	{
-//		if (*(arr + i) < 2) {
-//			++count;
-//		}
-//	}
-	////2
-	//int sum = 0;
-	//for (int i = size;; --i)
-	//{
-	//	if (*(arr + i) > 0) {
-	//		sum += *(arr + i);
-	//	}
-	//	else {
-	//		goto label1;
-	//	}
-	//}
-	//label1:
-	//double maxElement = find_max_element(arr, size);
-	//int count = 0;
-	//int newIndex = 0;
-	//for (int i = 0; i < size; i++) {
-	//	if (arr[i] >= zxc) {
-	//		arr1[i] = arr[i];
-	//	}
-	//}
-	//printf("\nМассив:\n");
-	//PrintArray(arr, size);
-	//printf("\nИзмененный массив:\n");
-	//PrintArray(arr1, size);
-	//
-//}
-int main()
-{
-label:
+void z4() {
+	double arr[] = { 3.24, -7.16, 2.28, -0.16, -3.22, 7.14, 2.88, 3.20, 0.99, 4.15 };
+	const int size = sizeof(arr) / sizeof(arr[0]);
+	// 1
+	int count = 0;
+	for (int i = 0; i < size; i++) {
+		if (arr[i] < 2) {
+			count++;
+		}
+	}
+	std::cout << "Количество элементов меньше 2: " << count << std::endl;
+	// 2
+	int lastNegativeNumber = -1;
+	for (int i = 0; i < size; i++) {
+		if (arr[i] < 0) {
+			lastNegativeNumber = i;
+		}
+	}
+	int sum = 0;
+	for (int i = lastNegativeNumber + 1; i < size; i++) {
+		sum += (int)arr[i];
+	}
+	std::cout << "Сумма целых частей элементов после последнего отрицательного: \n" << sum << std::endl;
+	// 3
+	double maxElement = arr[0];
+	for (int i = 1; i < size; i++) {
+		if (arr[i] > maxElement) {
+			maxElement = arr[i];
+		}
+	}
+	double arr1[size], arr2[size];
+	int k1 = 0, k2 = 0;
+	for (int i = 0; i < size; i++) {
+		if (std::abs(arr[i] - maxElement) <= maxElement * 0.2) {
+			arr1[k1++] = arr[i];
+		}
+		else {
+			arr2[k2++] = arr[i];
+		}
+	}
+	for (int i = 0; i < k1; i++) {
+		arr[i] = arr1[i];
+	}
+	for (int i = k1; i < size; i++) {
+		arr[i] = arr2[i - k1];
+	}
+	std::cout << "Преобразованный массив:\n";
+	PrintArray(arr, size);
+}
+
+int main() {
 	setlocale(LC_ALL, "Rus");
-	int p;
-	std::cin >> p;
-	switch (p)
-	{
-	case 1:
-		z1();
-		goto label;
-		break;
-	case 2:
-		z2();
-		goto label;
-		break;
-	case 3:
-		z3();
-		goto label;
-		break;
-	//case 4:
-	//	z4();
-	//	goto label;
-	//	break;
-	//}
+	printf("zadanaie 1 --> ");
+	z1();
+	printf("\nzadanaie 2 --> ");
+	z2();
+	printf("\nzadanaie 3 --> ");
+	z3();
+	printf("\nzadanaie 4 --> \n");
+	z4();
+	std::cout << "\n";
 }
