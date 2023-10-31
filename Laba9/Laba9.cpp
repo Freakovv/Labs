@@ -120,7 +120,6 @@ void z3(int rows, int cols) {
 	delete_memory(arr, rows);
 }
 void z4(int rows, int cols) {
-	printf("z4 -->\nn1 = 10\n");
 	int** arr = new int* [cols];
 	for (int i = 0; i < rows; i++)
 	{
@@ -132,7 +131,7 @@ void z4(int rows, int cols) {
 	}
 	int value = -100;
 	int n1;
-	std::cout << "\nВведите n1 = ";
+	std::cout << "\nvalue = -100\nВведите n1 = ";
 	std::cin >> n1;
 	for (int i = 0; i < rows; i++) {
 		for (int j = 0; j < cols; j++) {
@@ -232,29 +231,59 @@ void Z2() {
 
 int main()
 {
+label:
 	srand(time(0));
-	setlocale(LC_ALL, "Rus");
 	int rows = 0;
 	int cols = 0;
 	while ((rows < 1) || (cols < 1)) {
-		std::cerr << "Размеры массива не могут быть равны нулю" << std::endl;
-		std::cout << "Введите количество строк: ";
+		std::cerr << "Rows and cols != 0" << std::endl;
+		std::cout << "Enter number of rows: ";
 		std::cin >> rows;
-		std::cout << "Введите количество столбцов: ";
+		std::cout << "Enter number of cols: ";
 		std::cin >> cols;
 	}
-
-	//z1(rows, cols);
-	//std::cout << std::endl;
-	//z2(rows, cols);
-	//std::cout << std::endl;
-	//z3(rows, cols);
-	//std::cout << std::endl;
-	//z4(rows, cols);
-	//std::cout << std::endl;
-	z5(rows, cols);
-	std::cout << std::endl;
-	Z2();
-	std::cout << std::endl;
+	bool While = true;
+	while (While) {
+		int switcher = 0;
+		std::cout << "Select:\n1. zadanie1_1\n2. zadanie1_2\n3. zadanie1_3\n4. zadanie1_4\n5. zadanie1_5\n6. zadanie2\n7. EXIT\n8. Enter new rows and cols\n";
+		std::cin >> switcher;
+		switch (switcher)
+		{
+		case 1:
+			z1(rows, cols);
+			std::cout << std::endl;
+			break;
+		case 2:
+			z2(rows, cols);
+			std::cout << std::endl;
+			break;
+		case 3:
+			z3(rows, cols);
+			std::cout << std::endl;
+			break;
+		case 4:
+			z4(rows, cols);
+			std::cout << std::endl;
+			break;
+		case 5:
+			z5(rows, cols);
+			std::cout << std::endl;
+			break;
+		case 6:
+			Z2();
+			std::cout << std::endl;
+			break;
+		case 7:
+			While = false;
+			break;
+		case 8:
+			printf("\nGoodbye!\n");
+			goto label;
+		default:
+			"Введено неверное значение";
+			While = false;
+			break;
+		}
+	}
 }
 
