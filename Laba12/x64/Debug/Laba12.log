@@ -1,0 +1,10 @@
+﻿  Laba12.cpp
+C:\Users\Administrator\source\Labs\Laba12\HeaderSimanovich.h(110,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Administrator\source\Labs\Laba12\HeaderSimanovich.h(122,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\source\Labs\Laba12\Laba12.cpp(9,33): warning C4244: 'initializing': conversion from 'float' to 'size_t', possible loss of data
+C:\Users\Administrator\source\Labs\Laba12\Laba12.cpp(10,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\Labs\Laba12\Laba12.cpp(10,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\Labs\Laba12\Laba12.cpp(12,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\Labs\Laba12\Laba12.cpp(12,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\Labs\Laba12\Laba12.cpp(27,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Laba12.vcxproj -> C:\Users\Administrator\source\Labs\Laba12\x64\Debug\Laba12.exe
