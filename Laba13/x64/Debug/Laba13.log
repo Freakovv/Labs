@@ -1,0 +1,4 @@
+﻿  Laba13.cpp
+C:\Users\Administrator\source\Labs\Laba13\Laba13.cpp(44,32): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Administrator\source\Labs\Laba13\Laba13.cpp(41,18): error C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Administrator\source\Labs\Laba13\Laba13.cpp(46,16): error C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
