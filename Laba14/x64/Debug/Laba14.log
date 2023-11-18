@@ -1,0 +1,3 @@
+﻿  Laba14.cpp
+C:\Users\babyshka\source\repos\Freakovv\Labs\Laba14\Laba14.cpp(6,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Laba14.vcxproj -> C:\Users\babyshka\source\repos\Freakovv\Labs\Laba14\x64\Debug\Laba14.exe
